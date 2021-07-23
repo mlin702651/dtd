@@ -15,8 +15,8 @@ public class GroundGenerator : MonoBehaviour
     {
         width=Screen.width/200;
         height=Screen.height/200;
-        planes=inputman.GetComponent<InputManager>().planes;
-        planespeed=inputman.GetComponent<InputManager>().planespeed;
+        planes=inputman.GetComponent<ParameterManager>().planes;
+        planespeed=inputman.GetComponent<ParameterManager>().planespeed;
         Genmap();
     }
     public void Genmap(){

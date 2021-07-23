@@ -9,10 +9,19 @@ public class ParameterManager : MonoBehaviour
     public float planespeed; //地板沉下去的速度
     public float playerSpeed; //玩家移動速度 
     public float playerJumpVelocity; //玩家跳的力氣
+    public float TimeCount; // 時間倒數計時
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("escape"))
+        {
+            Application.Quit();
+        }
     }
 
 }

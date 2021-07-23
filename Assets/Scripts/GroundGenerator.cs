@@ -15,8 +15,8 @@ public class GroundGenerator : MonoBehaviour
     {
         width=Screen.width/200;
         height=Screen.height/200;
-        planes=inputman.GetComponent<ParameterManager>().planes;
-        planespeed=inputman.GetComponent<ParameterManager>().planespeed;
+        planes=ParameterManager.Instance.planes;
+        planespeed=ParameterManager.Instance.planespeed;
         Genmap();
     }
     public void Genmap(){
@@ -28,6 +28,7 @@ public class GroundGenerator : MonoBehaviour
             GameObject dirt=Instantiate(dirtblock,pos,Quaternion.identity);
             dirt.transform.SetLocalScaleX(width/planes/2);
             dirt.transform.SetLocalScaleY(height);
+            dirt.GetComponent<BoxCollider2D>().size=new Vector2(2f,2f);
             dirt.SetActive(true);
         }
     }

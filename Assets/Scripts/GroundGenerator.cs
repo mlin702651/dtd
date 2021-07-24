@@ -32,7 +32,7 @@ public class GroundGenerator : MonoBehaviour
         for (int i = -planes; i < planes; i++)
         {
             Vector3 pos = defaultt.position;
-            pos.x += i < 0 ? (width / planes) * (i + 0.5f) : (width / planes) * (i + 0.5f);
+            pos.x += i < 0 ? (width / planes/2) * (i + 0.5f) : (width / planes/2) * (i + 0.5f);
             pos.y = -height * 2;
             pos.z -= 0.1f;
             GameObject dirt = Instantiate(dirtblock, pos, Quaternion.identity, ground);

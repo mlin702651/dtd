@@ -11,6 +11,9 @@ public class ParameterManager : MonoBehaviour
     public float playerJumpVelocity; //玩家跳的力氣
     public float TimeCount; // 時間倒數計時
     public float groundchangingTime; //一次地形改變總時長
+    public float left_height=0;
+    public float right_height=0;
+    public int win_status;
     public int startblockamount; //起始地形高度，每個的高度隨機分配 
     public List<GameObject> dirtlist; //條狀板塊的傳參照
 
@@ -25,6 +28,15 @@ public class ParameterManager : MonoBehaviour
         {
             Application.Quit();
         }
+        left_height=0;
+        for(int i=0;i<dirtlist.Count/2;i++){
+            left_height+=dirtlist[i].transform.position.y+10.1f;
+        }
+        right_height=0;
+        for(int i=dirtlist.Count/2;i<dirtlist.Count;i++){
+            right_height+=dirtlist[i].transform.position.y+10.1f;
+        }
+        win_status=left_height>right_height?1:left_height==right_height?0:-1;
     }
 
 }

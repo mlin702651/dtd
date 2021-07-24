@@ -2,9 +2,14 @@
 
 public static class InputButtonDown {
     // 1. Button down properties.
-    public static bool example { get { return IsButtonDown(exampleButton); } }
+    public static bool left1 { get { return IsButtonDown(left1Button, true); } }
+    public static bool riught1 { get { return IsButtonDown(riught1Button, true); } }
+    public static bool up1 { get { return IsButtonDown(up1Button); } }
+    public static bool left2 { get { return IsButtonDown(left2Button, true); } }
+    public static bool riught2 { get { return IsButtonDown(riught2Button, true); } }
+    public static bool up2 { get { return IsButtonDown(up2Button); } }
     // 2. Button down repeatedly properties. (Optional)
-    public static bool exampleRepeat { get { return IsButtonDown(exampleButton, true); } }
+    //public static bool exampleRepeat { get { return IsButtonDown(exampleButton, true); } }
 
     class Button {
         public string axis;
@@ -22,11 +27,16 @@ public static class InputButtonDown {
         }
     }
     // 3. Button objects. Set axis name and is negative here.
-    static Button exampleButton = new Button("Example");
+    static Button left1Button = new Button("Horizontal_1P", true);
+    static Button riught1Button = new Button("Horizontal_1P");
+    static Button up1Button = new Button("Vertical_1P");
+    static Button left2Button = new Button("Horizontal_2P", true);
+    static Button riught2Button = new Button("Horizontal_2P");
+    static Button up2Button = new Button("Vertical_2P");
 
     // 4. Repeat threshold and speed.
-    static float threshold = 0.4f;
-    static float speed = 0.08f;
+    static float threshold = 0f;
+    static float speed = 0f;
 
     static bool IsButtonDown(Button button) {
         return IsButtonDown(button, false);

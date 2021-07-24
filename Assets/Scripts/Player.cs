@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
         {
             v.y -= G;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (id ? InputButtonDown.up2 : InputButtonDown.up1)
         {
             if (spriteRenderer.sprite == m_Sprite_idle)
             {
@@ -54,8 +54,8 @@ public class Player : MonoBehaviour
             }
             v.y += JumpForce;
         }
-
-        if (Input.GetKey(KeyCode.A))
+        
+        if (id ? InputButtonDown.left2 : InputButtonDown.left1)
         {
             if (spriteRenderer.sprite == m_Sprite_idle)
             {
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
                 v.x = 0f;
             }
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (id ? InputButtonDown.riught2 : InputButtonDown.riught1)
         {
             if (spriteRenderer.sprite == m_Sprite_idle)
             {

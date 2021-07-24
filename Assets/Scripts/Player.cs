@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class Player : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
+
     public Sprite m_Sprite_idle;
     public Sprite m_Sprite_left;
+    public Sprite m_Sprite_left2;
     public Sprite m_Sprite_right;
+    public Sprite m_Sprite_right2;
     public Sprite m_Sprite_jump;
     private Rigidbody2D rigidbody2D;
+    private SpriteRenderer spriteRenderer;
+
+    private int InputState = 0;
 
     public float timer;
     // Start is called before the first frame update
@@ -29,6 +35,7 @@ public class Player : MonoBehaviour
         {
             if (spriteRenderer.sprite == m_Sprite_idle)
             {
+                InputState = 1;
                 spriteRenderer.sprite = m_Sprite_left;
                 timer = 0;
             }
@@ -40,15 +47,17 @@ public class Player : MonoBehaviour
         {
             if (spriteRenderer.sprite == m_Sprite_idle)
             {
+                InputState = 2;
                 spriteRenderer.sprite = m_Sprite_right;
                 timer = 0;
             }
+
             transform.Translate(Vector3.right * Time.deltaTime * ParameterManager.Instance.playerSpeed);
 
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-
+            InputState = 3;
             if (spriteRenderer.sprite == m_Sprite_idle)
             {
                 spriteRenderer.sprite = m_Sprite_jump;
@@ -59,7 +68,24 @@ public class Player : MonoBehaviour
         }
         if (timer >= 0.3)
         {
-            spriteRenderer.sprite = m_Sprite_idle;
+            switch (InputState)
+            {
+                case 1:
+                    spriteRenderer.sprite = m_Sprite_left2;
+                    timer = 0;
+                    InputState = 0;
+                    break;
+                case 2:
+                    spriteRenderer.sprite = m_Sprite_right2;
+                    timer = 0;
+                    InputState = 0;
+                    break;
+                default:
+                    spriteRenderer.sprite = m_Sprite_idle;
+                    timer = 0;
+                    break;
+            }
+
         }
     }
 }

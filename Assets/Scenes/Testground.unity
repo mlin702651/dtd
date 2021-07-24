@@ -977,9 +977,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite_idle: {fileID: 21300000, guid: 1f26979616bfe5a4e9bf6b70c16ef12d, type: 3}
-  m_Sprite_left: {fileID: 21300000, guid: ec86ed1b684237f44aef6d5af3040677, type: 3}
-  m_Sprite_right: {fileID: 21300000, guid: 27dcb4fccfbb91e4e887ee7054254f54, type: 3}
+  m_Sprite_left: {fileID: 21300000, guid: c7c84e6782956c749a9fb2a6c9561aa6, type: 3}
+  m_Sprite_left2: {fileID: 21300000, guid: ec86ed1b684237f44aef6d5af3040677, type: 3}
+  m_Sprite_right: {fileID: 21300000, guid: 29c8290ac88cd0941b9075fa1a34dfb6, type: 3}
+  m_Sprite_right2: {fileID: 21300000, guid: 27dcb4fccfbb91e4e887ee7054254f54, type: 3}
   m_Sprite_jump: {fileID: 21300000, guid: 2bd05aa2a12bd3b48a696e0946236bbe, type: 3}
+  timer: 0
 --- !u!50 &2073880267
 Rigidbody2D:
   serializedVersion: 4

@@ -722,7 +722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planes: 7
-  planespeed: 0.01
+  planespeed: 0.03
   playerSpeed: 5
   playerJumpVelocity: 40
   TimeCount: 3

@@ -60,7 +60,7 @@ public class DirtController : MonoBehaviour
                 else
                 {
                     transform.GetChild(0).gameObject.SetActive(true);
-                    if (transform.position.y <= -Screen.height / 100)
+                    if (transform.position.y <= -ParameterManager.Instance.height*2)
                     {
                         transform.GetChild(0).gameObject.SetActive(false);
                     }

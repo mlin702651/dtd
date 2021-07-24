@@ -17,6 +17,8 @@ public class ParameterManager : MonoBehaviour
     public float spawnchance; //生成率
     public float left_height = 0;
     public float right_height = 0;
+    public float width;
+    public float height;
     public int win_status;
     public int startblockamount; //起始地形高度，每個的高度隨機分配 
     public List<GameObject> dirtlist; //條狀板塊的傳參照

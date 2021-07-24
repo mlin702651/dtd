@@ -614,6 +614,9 @@ MonoBehaviour:
   playerJumpVelocity: 40
   TimeCount: 3
   groundchangingTime: 10
+  left_height: 0
+  right_height: 0
+  win_status: 0
   startblockamount: 1000
   dirtlist: []
 --- !u!4 &1733868053

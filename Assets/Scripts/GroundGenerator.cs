@@ -8,6 +8,7 @@ public class GroundGenerator : MonoBehaviour
     public GameObject dirtblock;
     public GameObject groundctrl;
     public Transform defaultt;
+    public Sprite[] blocks;
     private float width;
     private float height;
     private int planes; //一個玩家要幾個地板
@@ -31,10 +32,12 @@ public class GroundGenerator : MonoBehaviour
             pos.y=-height*2;
             pos.z-=0.1f;
             GameObject dirt=Instantiate(dirtblock,pos,Quaternion.identity);
-            dirt.transform.SetLocalScaleX(width/planes);
+            dirt.transform.SetLocalScaleX(width/planes/1.15f);
             //dirt.transform.SetLocalScaleY(height);
             //dirt.GetComponent<BoxCollider2D>().size=new Vector2(2f,2f);
             dirt.name="土塊"+i;
+            SpriteRenderer dirtsp=dirt.GetComponent<SpriteRenderer>();
+            dirtsp.sprite=blocks[(i+planes)%3];
             dirt.SetActive(true);
             ParameterManager.Instance.dirtlist.Add(dirt);
         }

@@ -1055,17 +1055,19 @@ MonoBehaviour:
   timeCount2: 4
   limitspeed: 20
   planes: 6
-  planespeed: 0.015
+  planespeed: 0.02
   playerXSpeed: 5
   G: 60
   playerJumpVelocity: 30
   TimeCount: 30
-  groundchangingTime: 10
+  groundchangingTime: 20
   spawnchance: 0.01
   left_height: 0
   right_height: 0
+  width: 10
+  height: 4.4
   win_status: 0
-  startblockamount: 1000
+  startblockamount: 50
   dirtlist: []
 --- !u!4 &1733868053
 Transform:

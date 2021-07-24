@@ -31,9 +31,9 @@ public class GroundGenerator : MonoBehaviour
             pos.y=-height*2;
             pos.z-=0.1f;
             GameObject dirt=Instantiate(dirtblock,pos,Quaternion.identity);
-            dirt.transform.SetLocalScaleX(width/planes/2);
-            dirt.transform.SetLocalScaleY(height);
-            dirt.GetComponent<BoxCollider2D>().size=new Vector2(2f,2f);
+            dirt.transform.SetLocalScaleX(width/planes);
+            //dirt.transform.SetLocalScaleY(height);
+            //dirt.GetComponent<BoxCollider2D>().size=new Vector2(2f,2f);
             dirt.name="土塊"+i;
             dirt.SetActive(true);
             ParameterManager.Instance.dirtlist.Add(dirt);

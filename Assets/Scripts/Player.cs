@@ -5,32 +5,55 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-
+    public float timer;
+    public Transform leftPoint;
+    public Transform RightPoint;
+    public Transform leftWallPoint;
+    public Transform rightWallPoint;
     public Sprite m_Sprite_idle;
     public Sprite m_Sprite_left;
     public Sprite m_Sprite_left2;
     public Sprite m_Sprite_right;
     public Sprite m_Sprite_right2;
     public Sprite m_Sprite_jump;
-    private Rigidbody2D rigidbody2D;
     private SpriteRenderer spriteRenderer;
-
     private int InputState = 0;
-
-    public float timer;
-    // Start is called before the first frame update
+    Vector2 v;
+    float G;
+    float JumpForce;
+    float Xspeed;
+    float limitspeed;
     void Start()
     {
-        rigidbody2D = transform.GetComponent<Rigidbody2D>();
+        limitspeed = ParameterManager.Instance.limitspeed;
+        G = ParameterManager.Instance.G;
+        JumpForce = ParameterManager.Instance.playerJumpVelocity;
+        Xspeed = ParameterManager.Instance.playerXSpeed;
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
             spriteRenderer.sprite = m_Sprite_idle; // set the sprite to sprite1
     }
-
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
+        if (Physics2D.OverlapArea(leftPoint.GetPosition(), RightPoint.GetPosition(), LayerMask.GetMask("Ground")))
+        {
+            v.y = 0f;
+        }
+        else
+        {
+            v.y -= G;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (spriteRenderer.sprite == m_Sprite_idle)
+            {
+                spriteRenderer.sprite = m_Sprite_jump;
+                timer = 0;
+            }
+            v.y += JumpForce;
+        }
+
         if (Input.GetKey(KeyCode.A))
         {
             if (spriteRenderer.sprite == m_Sprite_idle)
@@ -39,11 +62,13 @@ public class Player : MonoBehaviour
                 spriteRenderer.sprite = m_Sprite_left;
                 timer = 0;
             }
-            transform.Translate(Vector3.left * Time.deltaTime * ParameterManager.Instance.playerSpeed);
-
+            v.x = -Xspeed;
+            if (Physics2D.OverlapPoint(leftWallPoint.GetPosition(), LayerMask.GetMask("Ground")))
+            {
+                v.x = 0f;
+            }
         }
-
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             if (spriteRenderer.sprite == m_Sprite_idle)
             {
@@ -51,21 +76,23 @@ public class Player : MonoBehaviour
                 spriteRenderer.sprite = m_Sprite_right;
                 timer = 0;
             }
-
-            transform.Translate(Vector3.right * Time.deltaTime * ParameterManager.Instance.playerSpeed);
-
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            InputState = 3;
-            if (spriteRenderer.sprite == m_Sprite_idle)
+            v.x = Xspeed;
+            if (Physics2D.OverlapPoint(rightWallPoint.GetPosition(), LayerMask.GetMask("Ground")))
             {
-                spriteRenderer.sprite = m_Sprite_jump;
-                timer = 0;
+                v.x = 0f;
             }
-
-            rigidbody2D.velocity = Vector2.up * ParameterManager.Instance.playerJumpVelocity;
         }
+        else
+        {
+            v.x = 0f;
+        }
+
+        if (v.y >= limitspeed)
+        {
+            v.y = limitspeed;
+        }
+        transform.Translate(v * Time.deltaTime);
+
         if (timer >= 0.3)
         {
             switch (InputState)
@@ -88,4 +115,5 @@ public class Player : MonoBehaviour
 
         }
     }
+
 }

@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            v.y -= G;
+            v.y -= G * Time.deltaTime;
         }
         if (id ? InputButtonDown.up2 : InputButtonDown.up1)
         {
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
             }
             v.y += JumpForce;
         }
-        
+
         if (id ? InputButtonDown.left2 : InputButtonDown.left1)
         {
             if (spriteRenderer.sprite == m_Sprite_idle)

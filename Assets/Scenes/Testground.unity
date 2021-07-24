@@ -576,6 +576,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8479850386076876566, guid: 988fed627d67b1144a32ba1bfbb9b262,
         type: 3}
+      propertyPath: id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479850386076876566, guid: 988fed627d67b1144a32ba1bfbb9b262,
+        type: 3}
       propertyPath: m_Sprite_idle
       value: 
       objectReference: {fileID: 21300000, guid: 7bd698701ee343649924591b538e0278,
@@ -836,7 +841,7 @@ MonoBehaviour:
   planes: 7
   planespeed: 0.03
   playerXSpeed: 5
-  G: 0.5
+  G: 60
   playerJumpVelocity: 30
   TimeCount: 30
   groundchangingTime: 10

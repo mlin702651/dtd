@@ -8,6 +8,8 @@ public class TimeCount : MonoBehaviour
     public float timeCount;
     public Text timeCount_UI;
     public GameObject END_UI;
+    public GameObject Win_UI;
+    public Text win_UI;
     void Start()
     {
         timeCount = ParameterManager.Instance.TimeCount;
@@ -25,6 +27,23 @@ public class TimeCount : MonoBehaviour
         {
             timeCount_UI.text = "0";
             END_UI.SetActive(true);
+            Win_UI.SetActive(true);
+            switch (ParameterManager.Instance.win_status)
+            {
+                case -1:
+                    win_UI.text = "LeftWin!";
+                    break;
+                case 0:
+                    win_UI.text = "Tie!";
+                    break;
+                case 1:
+                    win_UI.text = "RightWin!";
+                    break;
+                default:
+                    Debug.Log("Default case");
+                    break;
+            }
+
             CancelInvoke("timer");
         }
 

@@ -6,10 +6,13 @@ public class DirtController : MonoBehaviour
 {
     // Start is called before the first frame update
     public string dirtstate;
+    public int risestack=0;
     private float temptime;
     void Start()
     {
         temptime=-1;
+        transform.SetPositioinY(transform.position.y+ParameterManager.Instance.planespeed*risestack);
+        risestack=0;
     }
 
     // Update is called once per frame
@@ -23,13 +26,20 @@ public class DirtController : MonoBehaviour
                 }
                 else if(temptime<ParameterManager.Instance.groundchangingTime){
                     temptime++;
-                    transform.SetPositioinY(transform.position.y+ParameterManager.Instance.groundchangingUnit/ParameterManager.Instance.groundchangingTime*temptime);
+                    transform.SetPositioinY(transform.position.y+ParameterManager.Instance.planespeed/ParameterManager.Instance.groundchangingTime*temptime);
                 }
                 else{
-                    transform.GetChild(0).gameObject.SetActive(true);
-                    Debug.Log(this+"rised");
-                    dirtstate="none";
-                    temptime=-1;
+                    if(risestack==0){
+                        transform.GetChild(0).gameObject.SetActive(true);
+                        Debug.Log(this+"rised");
+                        dirtstate="none";
+                        temptime=-1;
+                    }
+                    else{
+                        Debug.Log(this+"rised");
+                        risestack--;
+                        temptime=-1;
+                    }
                 }
             break;
             case "fall":
@@ -39,7 +49,7 @@ public class DirtController : MonoBehaviour
                 }
                 else if(temptime<ParameterManager.Instance.groundchangingTime){
                     temptime++;
-                    transform.SetPositioinY(transform.position.y-ParameterManager.Instance.groundchangingUnit/ParameterManager.Instance.groundchangingTime*temptime);
+                    transform.SetPositioinY(transform.position.y-ParameterManager.Instance.planespeed/ParameterManager.Instance.groundchangingTime*temptime);
                 }
                 else{
                     transform.GetChild(0).gameObject.SetActive(true);

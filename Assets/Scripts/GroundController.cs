@@ -28,7 +28,11 @@ public class GroundController : MonoBehaviour
         else{
             dirt=ParameterManager.Instance.dirtlist[Random.Range(blockamount/2,blockamount)];
         }
-        dirt.GetComponent<DirtController>().dirtstate="rise";
+        if(dirt.GetComponent<DirtController>().dirtstate=="rise"){
+            dirt.GetComponent<DirtController>().risestack++;
+        }else{ 
+            dirt.GetComponent<DirtController>().dirtstate="rise";
+        }
     }
     private void fall(GameObject dirt){
         dirt.GetComponent<DirtController>().dirtstate="fall";

@@ -6,6 +6,7 @@ public class GroundGenerator : MonoBehaviour
 {
     public GameObject inputman;
     public GameObject dirtblock;
+    public GameObject groundctrl;
     public Transform defaultt;
     private float width;
     private float height;
@@ -18,6 +19,10 @@ public class GroundGenerator : MonoBehaviour
         planes=ParameterManager.Instance.planes;
         planespeed=ParameterManager.Instance.planespeed;
         Genmap();
+        for(int i=0;i<ParameterManager.Instance.startblockamount;i++){
+            groundctrl.GetComponent<GroundController>().rise(-1f);
+            groundctrl.GetComponent<GroundController>().rise(1f);
+        }
     }
     public void Genmap(){
         for(int i=-planes;i<planes;i++){
@@ -29,10 +34,11 @@ public class GroundGenerator : MonoBehaviour
             dirt.transform.SetLocalScaleX(width/planes/2);
             dirt.transform.SetLocalScaleY(height);
             dirt.GetComponent<BoxCollider2D>().size=new Vector2(2f,2f);
+            dirt.name="土塊"+i;
             dirt.SetActive(true);
+            ParameterManager.Instance.dirtlist.Add(dirt);
         }
     }
-
     // Update is called once per frame
     void Update()
     {

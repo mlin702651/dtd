@@ -10,6 +10,10 @@ public class ParameterManager : MonoBehaviour
     public float playerSpeed; //玩家移動速度 
     public float playerJumpVelocity; //玩家跳的力氣
     public float TimeCount; // 時間倒數計時
+    public float groundchangingTime;
+    public float groundchangingUnit;
+    public int startblockamount;
+    public List<GameObject> dirtlist;
 
     private void Awake()
     {

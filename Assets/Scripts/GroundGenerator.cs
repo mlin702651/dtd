@@ -42,5 +42,9 @@ public class GroundGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Random.Range(0f,1f)<=ParameterManager.Instance.spawnchance){
+            groundctrl.GetComponent<GroundController>().rise(-1f);
+            groundctrl.GetComponent<GroundController>().rise(1f);
+        }
     }
 }

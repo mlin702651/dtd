@@ -11,6 +11,7 @@ public class ParameterManager : MonoBehaviour
     public float playerJumpVelocity; //玩家跳的力氣
     public float TimeCount; // 時間倒數計時
     public float groundchangingTime; //一次地形改變總時長
+    public float spawnchance; //生成率
     public float left_height=0;
     public float right_height=0;
     public int win_status;

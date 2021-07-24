@@ -16,8 +16,8 @@ public class GroundGenerator : MonoBehaviour
     private float planespeed; //地板沉下去的速度
     void Start()
     {
-        width = Screen.width / 200;
-        height = Screen.height / 200;
+        width = Screen.width *128/100/110;
+        height = Screen.height / 256;
         planes = ParameterManager.Instance.planes;
         planespeed = ParameterManager.Instance.planespeed;
         Genmap();
@@ -30,11 +30,11 @@ public class GroundGenerator : MonoBehaviour
     public void Genmap(){
         for(int i=-planes;i<planes;i++){
             Vector3 pos=defaultt.position;
-            pos.x+=i<0?(width/planes)*(i+0.5f):(width/planes)*(i+0.5f);
+            pos.x+=i<0?(width/planes/2)*(i+0.5f):(width/planes/2)*(i+0.5f);
             pos.y=-height*2;
             pos.z-=0.1f;
             GameObject dirt=Instantiate(dirtblock,pos,Quaternion.identity,ground);
-            dirt.transform.SetLocalScaleX(width/planes/1.15f);
+            dirt.transform.SetLocalScaleX(width/planes/2.2f);
             //dirt.transform.SetLocalScaleY(height);
             //dirt.GetComponent<BoxCollider2D>().size=new Vector2(2f,2f);
             dirt.name="土塊"+i;

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ParameterManager : MonoBehaviour
 {
-    public float limitspeed;
+    public int timeCount2; //遊戲開始倒數計時
+    public float limitspeed; //限制玩家極限速度
     public static ParameterManager Instance; // 設定這邊的數值為全域變數
     public int planes; //一個玩家要幾個地板
     public float planespeed; //地板沉下去的速度

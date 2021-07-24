@@ -10,8 +10,10 @@ public class TimeCount : MonoBehaviour
     public GameObject END_UI;
     public GameObject Win_UI;
     public Text win_UI;
+    int addd;
     void Start()
     {
+        addd = ParameterManager.Instance.timeCount2;
         timeCount = ParameterManager.Instance.TimeCount;
         // END_UI.SetActive(false);
         InvokeRepeating("timer", 1, 1);
@@ -19,8 +21,14 @@ public class TimeCount : MonoBehaviour
 
     public void timer()
     {
-        timeCount -= 1;
-
+        if (addd == 0)
+        {
+            timeCount--;
+        }
+        else
+        {
+            addd--;
+        }
         timeCount_UI.text = timeCount + "";
 
         if (timeCount == 0)

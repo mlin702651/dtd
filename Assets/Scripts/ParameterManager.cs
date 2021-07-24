@@ -10,9 +10,9 @@ public class ParameterManager : MonoBehaviour
     public float playerSpeed; //玩家移動速度 
     public float playerJumpVelocity; //玩家跳的力氣
     public float TimeCount; // 時間倒數計時
-    public float groundchangingTime;
-    public int startblockamount;
-    public List<GameObject> dirtlist;
+    public float groundchangingTime; //一次地形改變總時長
+    public int startblockamount; //起始地形高度，每個的高度隨機分配 
+    public List<GameObject> dirtlist; //條狀板塊的傳參照
 
     private void Awake()
     {

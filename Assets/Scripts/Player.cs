@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public bool id;
     public float timer;
     public Transform leftPoint;
     public Transform RightPoint;
@@ -117,3 +118,4 @@ public class Player : MonoBehaviour
     }
 
 }
+

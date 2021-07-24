@@ -24,30 +24,13 @@ public class GroundController : MonoBehaviour
         int blockamount=ParameterManager.Instance.dirtlist.Count;
         if(dirtx>0){
             dirt=ParameterManager.Instance.dirtlist[Random.Range(0,blockamount/2)];
-            dirt.transform.GetChild(0).gameObject.SetActive(false);
-            for(float i=0;i<ParameterManager.Instance.groundchangingTime;i++){
-                dirt.transform.SetPositioinY(dirt.transform.position.y+ParameterManager.Instance.groundchangingUnit*i);
-            }
         }
         else{
             dirt=ParameterManager.Instance.dirtlist[Random.Range(blockamount/2,blockamount)];
-            dirt.transform.GetChild(0).gameObject.SetActive(false);
-            for(float i=0;i<ParameterManager.Instance.groundchangingTime;i++){
-                dirt.transform.SetPositioinY(dirt.transform.position.y+ParameterManager.Instance.groundchangingUnit*i);
-            }
-        }   
-        dirt.transform.GetChild(0).gameObject.SetActive(true);
-        Debug.Log(dirt+"rised");
+        }
+        dirt.GetComponent<DirtController>().dirtstate="rise";
     }
     private void fall(GameObject dirt){
-        dirt.transform.GetChild(0).gameObject.SetActive(false);
-        for(float i=0;i<ParameterManager.Instance.groundchangingTime;i++){
-            dirt.transform.SetPositioinY(dirt.transform.position.y-ParameterManager.Instance.groundchangingUnit*i);
-        }
-        dirt.transform.GetChild(0).gameObject.SetActive(true);
-        if(dirt.transform.position.y<=-Screen.height/100){
-            dirt.transform.GetChild(0).gameObject.SetActive(false);
-        }
-        Debug.Log(dirt+"falled");
+        dirt.GetComponent<DirtController>().dirtstate="fall";
     }
 }

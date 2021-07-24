@@ -6,63 +6,70 @@ public class DirtController : MonoBehaviour
 {
     // Start is called before the first frame update
     public string dirtstate;
-    public int risestack=0;
+    public int risestack = 0;
     private float temptime;
     void Start()
     {
-        temptime=-1;
-        transform.SetPositioinY(transform.position.y+ParameterManager.Instance.planespeed*risestack);
-        risestack=0;
+        temptime = -1;
+        transform.SetPositioinY(transform.position.y + ParameterManager.Instance.planespeed * risestack);
+        risestack = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch(dirtstate){
+        switch (dirtstate)
+        {
             case "rise":
-                if(temptime==-1){
-                    temptime=0;
+                if (temptime == -1)
+                {
+                    temptime = 0;
                     transform.GetChild(0).gameObject.SetActive(false);
                 }
-                else if(temptime<ParameterManager.Instance.groundchangingTime){
+                else if (temptime < ParameterManager.Instance.groundchangingTime)
+                {
                     temptime++;
-                    transform.SetPositioinY(transform.position.y+ParameterManager.Instance.planespeed/ParameterManager.Instance.groundchangingTime*temptime);
+                    transform.SetPositioinY(transform.position.y + ParameterManager.Instance.planespeed / ParameterManager.Instance.groundchangingTime * temptime);
                 }
-                else{
-                    if(risestack==0){
+                else
+                {
+                    if (risestack == 0)
+                    {
                         transform.GetChild(0).gameObject.SetActive(true);
-                        Debug.Log(this+"rised");
-                        dirtstate="none";
-                        temptime=-1;
+                        dirtstate = "none";
+                        temptime = -1;
                     }
-                    else{
-                        Debug.Log(this+"rised");
+                    else
+                    {
                         risestack--;
-                        temptime=-1;
+                        temptime = -1;
                     }
                 }
-            break;
+                break;
             case "fall":
-            if(temptime==-1){
-                    temptime=0;
+                if (temptime == -1)
+                {
+                    temptime = 0;
                     transform.GetChild(0).gameObject.SetActive(false);
                 }
-                else if(temptime<ParameterManager.Instance.groundchangingTime){
+                else if (temptime < ParameterManager.Instance.groundchangingTime)
+                {
                     temptime++;
-                    transform.SetPositioinY(transform.position.y-ParameterManager.Instance.planespeed/ParameterManager.Instance.groundchangingTime*temptime);
+                    transform.SetPositioinY(transform.position.y - ParameterManager.Instance.planespeed / ParameterManager.Instance.groundchangingTime * temptime);
                 }
-                else{
+                else
+                {
                     transform.GetChild(0).gameObject.SetActive(true);
-                    if(transform.position.y<=-Screen.height/100){
+                    if (transform.position.y <= -Screen.height / 100)
+                    {
                         transform.GetChild(0).gameObject.SetActive(false);
                     }
-                    dirtstate="none";
-                    Debug.Log(this+"falled");
-                    temptime=-1;
+                    dirtstate = "none";
+                    temptime = -1;
                 }
-            break;
+                break;
             default:
-            break;
+                break;
         }
     }
 }

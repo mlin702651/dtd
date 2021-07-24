@@ -219,6 +219,10 @@ MonoBehaviour:
   groundctrl: {fileID: 8862978129925130291, guid: f394ffed5511cbf468c148c226b815fd,
     type: 3}
   defaultt: {fileID: 2115727935}
+  blocks:
+  - {fileID: 21300000, guid: 7bedb80e0d451ce409e30371dabf874c, type: 3}
+  - {fileID: 21300000, guid: af75d81b990f1ea419bebf94d3972c61, type: 3}
+  - {fileID: 21300000, guid: 5b0748ec57aa934439fec0275f798280, type: 3}
 --- !u!4 &433121620
 Transform:
   m_ObjectHideFlags: 0
@@ -723,6 +727,7 @@ MonoBehaviour:
   playerJumpVelocity: 40
   TimeCount: 3
   groundchangingTime: 10
+  spawnchance: 0
   left_height: 0
   right_height: 0
   win_status: 0

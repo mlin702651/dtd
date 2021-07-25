@@ -41,7 +41,7 @@ public class GroundButton : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D hit)
     {
-        if (hit.CompareTag("Player"))
+        if (hit.CompareTag("Player1") || hit.CompareTag("Player2"))
         {
             onStage = true;
         }

@@ -56,13 +56,13 @@ public class Star : MonoBehaviour
             case "Player1":
                 groundctrl.GetComponent<GroundController>().dangerify(1);
                 //ParameterManager.Instance.whoTouch = 1;
-                Destroy(this);
+                Destroy(gameObject);
                 Debug.Log("Player1");
                 break;
             case "Player2":
                 groundctrl.GetComponent<GroundController>().dangerify(0);
                 //sParameterManager.Instance.whoTouch = 2;
-                Destroy(this);
+                Destroy(gameObject);
                 Debug.Log("Player2");
                 break;
             default:

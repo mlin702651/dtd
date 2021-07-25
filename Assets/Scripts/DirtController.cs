@@ -111,12 +111,12 @@ public class DirtController : MonoBehaviour
                     coloring=true;
                     colortime=0;
                 }
-            this.GetComponent<SpriteRenderer>().color=blocolor;
             danger-=Time.deltaTime;
             if(danger<=0){
                 isdangerous=false;
                 blocolor=ParameterManager.Instance.blockcolor;
             }
+            this.GetComponent<SpriteRenderer>().color=blocolor;
         }
     }
 }

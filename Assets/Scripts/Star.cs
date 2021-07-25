@@ -9,6 +9,7 @@ public class Star : MonoBehaviour
     public float starJumpMax;
     public static Star Instance;
     public Transform starPos;
+    public GameObject groundctrl;
     float G;
 
     Vector2 vector2;
@@ -53,11 +54,13 @@ public class Star : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Player1":
+                groundctrl.GetComponent<GroundController>().dangerify(1);
                 //ParameterManager.Instance.whoTouch = 1;
                 Destroy(this);
                 Debug.Log("Player1");
                 break;
             case "Player2":
+                groundctrl.GetComponent<GroundController>().dangerify(0);
                 //sParameterManager.Instance.whoTouch = 2;
                 Destroy(this);
                 Debug.Log("Player2");

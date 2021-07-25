@@ -6455,8 +6455,8 @@ MonoBehaviour:
   limitspeed: 20
   planes: 6
   blockcolor: {r: 1, g: 1, b: 1, a: 1}
-  specialcolor: {r: 0.8584906, g: 0.5645412, b: 0.1579299, a: 1}
-  dangerouscolor: {r: 0.94509804, g: 0.101960786, b: 0.46666667, a: 1}
+  specialcolor: {r: 0.93333334, g: 0.8117647, b: 0.49019608, a: 1}
+  dangerouscolor: {r: 0.972549, g: 0.32549018, b: 0.48495254, a: 1}
   planespeed: 0.01
   playerXSpeed: 5
   G: 60

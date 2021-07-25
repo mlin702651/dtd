@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TimeCount : MonoBehaviour
 {
+    public GameObject RButton;
+    public GameObject EButton;
     public float timeCount;
     public Text timeCount_UI;
     public GameObject END_UI;
@@ -36,6 +38,8 @@ public class TimeCount : MonoBehaviour
             timeCount_UI.text = "0";
             END_UI.SetActive(true);
             Win_UI.SetActive(true);
+            RButton.SetActive(true);
+            EButton.SetActive(true);
             switch (ParameterManager.Instance.win_status)
             {
                 case -1:

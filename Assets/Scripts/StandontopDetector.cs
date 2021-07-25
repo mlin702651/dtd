@@ -8,16 +8,18 @@ public class StandontopDetector : MonoBehaviour
     public GameObject groundctrl;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    void OnTriggerEnter2D(Collider2D hit){
-        if(hit.CompareTag("Player")){
+    void OnTriggerEnter2D(Collider2D hit)
+    {
+        if (hit.CompareTag("Player"))
+        {
             groundctrl.GetComponent<GroundController>().stepped(this.GetComponentInParent<Transform>().gameObject);
         }
     }

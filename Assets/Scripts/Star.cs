@@ -54,12 +54,12 @@ public class Star : MonoBehaviour
         {
             case "Player1":
                 //ParameterManager.Instance.whoTouch = 1;
-                Destroy(this);
+                Destroy(gameObject);
                 Debug.Log("Player1");
                 break;
             case "Player2":
                 //sParameterManager.Instance.whoTouch = 2;
-                Destroy(this);
+                Destroy(gameObject);
                 Debug.Log("Player2");
                 break;
             default:

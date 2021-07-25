@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
             v.y -= G * Time.deltaTime;
         }
 
-        if (id ? InputButtonDown.up2 : InputButtonDown.up1 && timer2 >= ParameterManager.Instance.timeCount2)
+        if ((id ? InputButtonDown.up2 : InputButtonDown.up1) && timer2 >= ParameterManager.Instance.timeCount2)
         {
             if (spriteRenderer.sprite == m_Sprite_idle)
             {

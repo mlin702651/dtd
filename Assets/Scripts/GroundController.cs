@@ -16,8 +16,13 @@ public class GroundController : MonoBehaviour
         
     }
     public void stepped(GameObject dirt){
-        fall(dirt.transform.parent.gameObject);
-        rise(dirt.transform.position.x);
+        if(dirt.transform.parent.GetComponent<DirtController>().isdangerous){
+            rise(dirt.transform.parent.gameObject);
+        }
+        else{
+            fall(dirt.transform.parent.gameObject);
+            rise(dirt.transform.position.x);
+        }
     }
     public void rise(float dirtx){
         GameObject dirt;
@@ -32,6 +37,29 @@ public class GroundController : MonoBehaviour
             dirt.GetComponent<DirtController>().risestack++;
         }else{ 
             dirt.GetComponent<DirtController>().dirtstate="rise";
+        }
+    }
+    public void rise(GameObject dirt){
+        if(dirt.GetComponent<DirtController>().dirtstate=="rise"){
+            dirt.GetComponent<DirtController>().risestack++;
+        }else{ 
+            dirt.GetComponent<DirtController>().dirtstate="rise";
+        }
+    }
+    public void dangerify(int playerid){
+        int blockamount=ParameterManager.Instance.dirtlist.Count;
+        GameObject dirt;
+        if(playerid==0){
+            dirt=ParameterManager.Instance.dirtlist[Random.Range(0,blockamount/2)];
+        }
+        else{
+            dirt=ParameterManager.Instance.dirtlist[Random.Range(blockamount/2,blockamount)];
+        }
+        if(dirt.GetComponent<DirtController>().isdangerous){
+            dangerify(playerid);
+        }else{
+            dirt.GetComponent<DirtController>().isdangerous=true;
+            dirt.GetComponent<DirtController>().danger=ParameterManager.Instance.dangertime;
         }
     }
     private void fall(GameObject dirt){

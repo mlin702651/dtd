@@ -8,12 +8,19 @@ public class DirtController : MonoBehaviour
     public string dirtstate;
     public int risestack = 0;
     public bool isspeacial=false;
+    public bool isdangerous=false;
+    public float danger;
     private float temptime;
+    private float colortime;
     private Color blocolor;
+    private Color dangerouscolor;
+    private Color specialcolor;
     private bool coloring;
     void Start()
     {
         blocolor=ParameterManager.Instance.blockcolor;
+        dangerouscolor=ParameterManager.Instance.dangerouscolor;
+        specialcolor=ParameterManager.Instance.specialcolor;
         temptime = -1;
         transform.SetPositioinY(transform.position.y + ParameterManager.Instance.planespeed * risestack);
         risestack = 0;
@@ -83,24 +90,33 @@ public class DirtController : MonoBehaviour
             default:
                 break;
         }
-        if(isspeacial){
-            if(coloring){
-                if(blocolor.b+Time.deltaTime>1){
-                    coloring=false;
-                }
-                else{
-                    blocolor.b+=Time.deltaTime;
-                }
+        if(isspeacial||isdangerous){
+            if(isdangerous){
+                blocolor=Color.Lerp(ParameterManager.Instance.blockcolor,dangerouscolor,ParameterManager.Instance.fadetime*colortime);
             }
             else{
-                if(blocolor.b<Time.deltaTime){
-                    coloring=true;
+                blocolor=Color.Lerp(ParameterManager.Instance.blockcolor,specialcolor,ParameterManager.Instance.fadetime*colortime);
+            }
+            if(coloring){
+                    colortime+=Time.deltaTime;
                 }
                 else{
-                    blocolor.b-=Time.deltaTime;
+                    colortime-=Time.deltaTime;
                 }
-            }
+                if(colortime>ParameterManager.Instance.fadetime){
+                    coloring=false;
+                    colortime=ParameterManager.Instance.fadetime;
+                }
+                else if(colortime<0){
+                    coloring=true;
+                    colortime=0;
+                }
             this.GetComponent<SpriteRenderer>().color=blocolor;
+            danger-=Time.deltaTime;
+            if(danger<=0){
+                isdangerous=false;
+                blocolor=ParameterManager.Instance.blockcolor;
+            }
         }
     }
 }

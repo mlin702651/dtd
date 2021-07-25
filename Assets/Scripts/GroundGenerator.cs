@@ -26,6 +26,7 @@ public class GroundGenerator : MonoBehaviour
             groundctrl.GetComponent<GroundController>().rise(-1f);
             groundctrl.GetComponent<GroundController>().rise(1f);
         }
+        groundctrl.GetComponent<GroundController>().dangerify(1);
     }
     public void Genmap()
     {

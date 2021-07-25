@@ -10,6 +10,8 @@ public class ParameterManager : MonoBehaviour
     public static ParameterManager Instance; // 設定這邊的數值為全域變數
     public int planes; //一個玩家要幾個地板
     public Color blockcolor; //地板顏色
+    public Color specialcolor;
+    public Color dangerouscolor;
     public float planespeed; //地板沉下去的速度
     public float playerXSpeed; //玩家X移動速度 
     public float G; //重力
@@ -18,6 +20,8 @@ public class ParameterManager : MonoBehaviour
     public float groundchangingTime; //一次地形改變總時長
     public float spawnchance; //生成率
     public float specialspawn;
+    public float fadetime; //地板顏色改變速率
+    public float dangertime; //技能持續時間
     public float left_height = 0;
     public float right_height = 0;
     public float width;

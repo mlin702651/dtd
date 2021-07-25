@@ -5,18 +5,30 @@ using UnityEngine.UI;
 
 public class TimeCount : MonoBehaviour
 {
+    public GameObject UNIT;
+    public GameObject TEN;
+
+    SpriteRenderer unitSprite;
+    SpriteRenderer tenSprite;
+    public Sprite[] numberSprite;
     public GameObject RButton;
     public GameObject EButton;
-    public float timeCount;
+    float timeCount;
     public Text timeCount_UI;
     public GameObject END_UI;
     public GameObject Win_UI;
     public Text win_UI;
-    int addd;
+    int addd; //遊戲開始倒數
+
+    int unitPlace = 0;
+    int tenPlace = 6;
+
     void Start()
     {
         addd = ParameterManager.Instance.timeCount2;
         timeCount = ParameterManager.Instance.TimeCount;
+        unitSprite = UNIT.GetComponent<SpriteRenderer>();
+        tenSprite = TEN.GetComponent<SpriteRenderer>();
         // END_UI.SetActive(false);
         InvokeRepeating("timer", 1, 1);
     }
@@ -26,12 +38,16 @@ public class TimeCount : MonoBehaviour
         if (addd == 0)
         {
             timeCount--;
+            unitPlace = (int)timeCount / 1 % 10;
+            tenPlace = (int)timeCount / 10 % 10;
         }
         else
         {
             addd--;
         }
-        timeCount_UI.text = timeCount + "";
+        unitSprite.sprite = numberSprite[unitPlace];
+        tenSprite.sprite = numberSprite[tenPlace];
+        // timeCount_UI.text = timeCount + "";
 
         if (timeCount == 0)
         {

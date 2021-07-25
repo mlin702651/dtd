@@ -18,7 +18,7 @@ public class StandontopDetector : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D hit)
     {
-        if (hit.CompareTag("Player"))
+        if (hit.CompareTag("Player1") || hit.CompareTag("Player2"))
         {
             groundctrl.GetComponent<GroundController>().stepped(this.GetComponentInParent<Transform>().gameObject);
         }

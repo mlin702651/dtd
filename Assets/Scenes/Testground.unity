@@ -6599,6 +6599,8 @@ MonoBehaviour:
   limitspeed: 20
   planes: 6
   blockcolor: {r: 1, g: 1, b: 1, a: 1}
+  specialcolor: {r: 0.8584906, g: 0.5645412, b: 0.1579299, a: 1}
+  dangerouscolor: {r: 0.94509804, g: 0.101960786, b: 0.46666667, a: 1}
   planespeed: 0.02
   playerXSpeed: 5
   G: 60
@@ -6607,6 +6609,8 @@ MonoBehaviour:
   groundchangingTime: 20
   spawnchance: 0.01
   specialspawn: 0.1
+  fadetime: 1
+  dangertime: 5
   left_height: 0
   right_height: 0
   width: 10

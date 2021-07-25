@@ -135,3 +135,5 @@ MonoBehaviour:
   starJumpMin: 0
   starJumpMax: 25
   starPos: {fileID: 3160995819359544245}
+  groundctrl: {fileID: 8862978129925130291, guid: f394ffed5511cbf468c148c226b815fd,
+    type: 3}

@@ -9,7 +9,7 @@ public class DirtController : MonoBehaviour
     public int risestack = 0;
     public bool isspeacial = false;
     public bool isdangerous = false;
-    public float danger;
+    public float danger=0f;
     private float temptime;
     private float colortime;
     private Color blocolor;
@@ -101,6 +101,7 @@ public class DirtController : MonoBehaviour
             if (isdangerous)
             {
                 blocolor = Color.Lerp(ParameterManager.Instance.blockcolor, dangerouscolor, ParameterManager.Instance.fadetime * colortime);
+                danger -= Time.deltaTime;
             }
             else
             {
@@ -124,10 +125,10 @@ public class DirtController : MonoBehaviour
                 coloring = true;
                 colortime = 0;
             }
-            danger -= Time.deltaTime;
-            if (danger <= 0)
+            if (danger < 0f)
             {
                 isdangerous = false;
+                danger=0f;
                 blocolor = ParameterManager.Instance.blockcolor;
             }
             this.GetComponent<SpriteRenderer>().color = blocolor;

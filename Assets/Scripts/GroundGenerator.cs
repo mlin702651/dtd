@@ -32,11 +32,11 @@ public class GroundGenerator : MonoBehaviour
         for (int i = -planes; i < planes; i++)
         {
             Vector3 pos = defaultt.position;
-            pos.x += i < 0 ? (width / planes/1.5f) * (i + 0.5f) : (width / planes/1.5f) * (i + 0.5f);
+            pos.x += i < 0 ? (width / planes/1.52f) * (i + 0.5f) : (width / planes/1.5f) * (i + 0.5f);
             pos.y = -height * 2;
             pos.z -= 0.1f;
             GameObject dirt = Instantiate(dirtblock, pos, Quaternion.identity, ground);
-            dirt.transform.SetLocalScaleX(width / planes / 1.8f);
+            dirt.transform.SetLocalScaleX(width / planes / 1.75f);
             //dirt.transform.SetLocalScaleY(height);
             //dirt.GetComponent<BoxCollider2D>().size=new Vector2(2f,2f);
             dirt.name = "土塊" + i;

@@ -1356,6 +1356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a70c2901a45b741a9154a3e8474672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ButtonSpeed: 5
   timeCount2: 4
   limitspeed: 20
   planes: 6

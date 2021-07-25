@@ -22,7 +22,7 @@ public class GroundButton : MonoBehaviour
     {
         if (onStage)
         {
-            transform.TranslateY(-2f * Time.deltaTime);
+            transform.TranslateY(ParameterManager.Instance.ButtonSpeed * Time.deltaTime);
             onStage = false;
         }
 

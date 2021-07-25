@@ -1056,7 +1056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1026645586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6605,7 +6605,7 @@ MonoBehaviour:
   playerXSpeed: 5
   G: 60
   playerJumpVelocity: 30
-  TimeCount: 3
+  TimeCount: 60
   groundchangingTime: 20
   spawnchance: 0.01
   specialspawn: 0.1
@@ -7398,7 +7398,7 @@ MonoBehaviour:
   RButton: {fileID: 1634338410}
   EButton: {fileID: 862403095}
   END_UI: {fileID: 1030075173}
-  Win_UI: {fileID: 0}
+  Win_UI: {fileID: 677982785}
 --- !u!4 &2123128069
 Transform:
   m_ObjectHideFlags: 0

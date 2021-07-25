@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public bool TimeCount = true; //開始倒數計時
-
+    public AudioSource m_MyAudioSource;
     public bool id;
     public float timer;
     public float timer2;
@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
         {
             v.y -= G * Time.deltaTime;
         }
-        if (id ? InputButtonDown.up2 : InputButtonDown.up1)
+        if (id ? InputButtonDown.up2 : InputButtonDown.up1 && timer2 >= ParameterManager.Instance.timeCount2)
         {
             if (spriteRenderer.sprite == m_Sprite_idle)
             {
@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
                 timer = 0;
             }
             v.y += JumpForce;
+            m_MyAudioSource.Play();
         }
 
         if (id ? InputButtonDown.left2 : InputButtonDown.left1)

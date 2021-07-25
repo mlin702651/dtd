@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ParameterManager : MonoBehaviour
 {
+    //public int whoTouch = 0; //誰碰到星星
     public float ButtonSpeed; //按鈕沉下去的速度
     public int timeCount2; //遊戲開始倒數計時
     public float limitspeed; //限制玩家極限速度
